@@ -56,4 +56,16 @@ public class Stylists {
       return myStylists;
     }
   }
+
+  //UPDATE
+  public void update(String newName) {
+    this.mName = newName;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET name = :newName WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("newName", newName)
+        .addParameter("id", this.mId)
+        .executeUpdate();
+    }
+  }
 }

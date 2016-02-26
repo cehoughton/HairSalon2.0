@@ -35,5 +35,13 @@ public class StylistsTest {
     assertTrue(myStylists.equals(savedStylists));
 }
 
+  @Test
+    public void update_changesStylistsInDatabase_true() {
+      Stylists myStylists = new Stylists("Jim");
+      myStylists.save();
+      myStylists.update("Frank");
+      assertEquals("Frank", myStylists.getName());
+  }
+
 
 }
