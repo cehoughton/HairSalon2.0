@@ -20,4 +20,20 @@ public class StylistsTest {
     assertTrue(firstStylists.equals(secondStylists));
   }
 
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Stylists myStylists = new Stylists("Jim");
+    myStylists.save();
+    assertTrue(Stylists.all().get(0).equals(myStylists));
+}
+
+  @Test
+  public void find_findStylistsInDatabase_true() {
+    Stylists myStylists = new Stylists("Jim");
+    myStylists.save();
+    Stylists savedStylists = Stylists.find(myStylists.getId());
+    assertTrue(myStylists.equals(savedStylists));
+}
+
+
 }
