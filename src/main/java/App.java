@@ -11,11 +11,30 @@ public class App {
 
           get("/", (request, response) -> {
             HashMap<String, Object> model = new HashMap<String, Object>();
-            // model.put("stylists", Stylists.all());
+            model.put("stylists", Stylists.all());
             // model.put("clients", Clients.all());
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
           }, new VelocityTemplateEngine());
+
+          post("/", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("stylistname");
+             Stylists newstylist = new Stylists(name);
+             newstylist.save();
+             response.redirect("/");
+             return null;
+          });
+
+          post("/delete-stylist", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            Stylists stylist = Stylists.find(Integer.parseInt(request.queryParams("id-stylist")));
+            stylist.delete();
+            model.put("stylist", stylist);
+            response.redirect("/");
+            return null;
+          });
+
         //RESTful ARCHITECTURE
         //Use POST to create something on the server
         //Use GET to retrieve something from the server

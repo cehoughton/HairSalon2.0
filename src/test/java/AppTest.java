@@ -21,6 +21,27 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("");
+  }
 
-  //Tests go here
+  // @Test
+  //  public void stylistAddedSuccessfully() {
+  //    goTo("http://localhost:4567/");
+  //    fill("#stylistname").with("Russ");
+  //    submit(".btn");
+  //    assertThat(pageSource()).contains("Russ");
+  //  }
+
+   @Test
+    public void stylistRemoved() {
+      Stylists myStylist = new Stylists("Susan");
+      myStylist.save();
+      goTo("http://localhost:4567/");
+      click("option", withText("Susan"));
+      submit(".delete-stylist");
+      assertThat(!(pageSource()).contains("Susan"));
+  }
 }
