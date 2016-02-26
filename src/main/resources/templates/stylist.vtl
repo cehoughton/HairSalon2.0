@@ -13,7 +13,18 @@ stylist.vtl
   </div>
 </div>
 
-<div class="row">
+<h1>New Appointment for $stylist.getName()</h1>
+
+<form action="/$stylist.getId()" class="form-horizontal" method="post">
+  <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+  <div class="form-group">
+    <label for="newClient">Enter Client Name Here:</label>
+    <input id="newClientName" name="newClientName" type="text"><br>
+  </div>
+
+  <button type="submit" class="btn btn-info">Add Client</button>
+</form>
+<!-- <div class="row">
 
    <h4> Client List</h4>
    <div class="col-md-4">
@@ -31,4 +42,4 @@ stylist.vtl
        <br>
        <button type="submit" class="btn btn-success new-client">Submit</button>
      </form>
-   </div>
+   </div> -->
