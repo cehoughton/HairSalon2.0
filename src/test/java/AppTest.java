@@ -56,16 +56,16 @@ public class AppTest extends FluentTest {
      assertThat(pageSource()).contains("George");
    }
 
-   @Test
-    public void clientAddedSuccessfully() {
-      goTo("http://localhost:4567/");
-      fill("#name-stylist").with("Susan");
-      submit(".new-stylist");
-      click("a", withText("Susan"));
-      fill("#name-client").with("George");
-      click("option", withText("Susan"));
-      submit(".new-client");
-      assertThat(pageSource()).contains("George");
-    }
+  //  @Test
+  //   public void clientAddedSuccessfully() {
+  //     goTo("http://localhost:4567/");
+  //     fill("#name-stylist").with("Susan");
+  //     submit(".new-stylist");
+  //     click("a", withText("Susan"));
+  //     fill("#name-client").with("George");
+  //     click("option", withText("Susan"));
+  //     submit(".new-client");
+  //     assertThat(pageSource()).contains("George");
+  //   }
 
 }
