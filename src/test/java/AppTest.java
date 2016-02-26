@@ -27,13 +27,13 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("");
   }
 
-  // @Test
-  //  public void stylistAddedSuccessfully() {
-  //    goTo("http://localhost:4567/");
-  //    fill("#stylistname").with("Russ");
-  //    submit(".btn");
-  //    assertThat(pageSource()).contains("Russ");
-  //  }
+  @Test
+   public void stylistAddedSuccessfully() {
+     goTo("http://localhost:4567/");
+     fill("#stylistname").with("Russ");
+     submit(".Next");
+     assertThat(pageSource()).contains("Russ");
+   }
 
    @Test
     public void stylistRemoved() {
@@ -42,7 +42,7 @@ public class AppTest extends FluentTest {
       goTo("http://localhost:4567/");
       click("option", withText("Susan"));
       submit(".delete-stylist");
-      assertThat(!(pageSource()).contains("Susan"));
+      assertThat(!(pageSource()).contains(""));
   }
 
   @Test
@@ -56,16 +56,16 @@ public class AppTest extends FluentTest {
      assertThat(pageSource()).contains("George");
    }
 
-  //  @Test
-  //   public void clientAddedSuccessfully() {
-  //     goTo("http://localhost:4567/");
-  //     fill("#name-stylist").with("Susan");
-  //     submit(".new-stylist");
-  //     click("a", withText("Susan"));
-  //     fill("#name-client").with("George");
-  //     click("option", withText("Susan"));
-  //     submit(".new-client");
-  //     assertThat(pageSource()).contains("George");
-  //   }
+   @Test
+    public void clientAddedSuccessfully() {
+      Stylists myStylist = new Stylists("Susan");
+      myStylist.save();
+      goTo("http://localhost:4567/");
+      click("a", withText("Susan"));
+      fill("#newClientName").with("George");
+
+      submit(".Add-client");
+      assertThat(pageSource()).contains("George");
+    }
 
 }

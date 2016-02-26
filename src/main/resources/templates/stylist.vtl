@@ -1,20 +1,18 @@
 stylist.vtl
 
-<h3>$stylist.getName()</h3>
+<h1>Here are all of the clients for $stylist.getName()</h1>
 <hr>
 
-<div class="row">
-  <div class="col-md-8">
+  <div
     <ul>
       #foreach($client in $stylist.getClients())
         <li><a href="/client/$client.getId()">$client.getName()</a></li>
-        
       #end
     </ul>
   </div>
-</div>
-
-<h1>New Appointment for $stylist.getName()</h1>
+<br>
+<br>
+<h1>Add a New Client for $stylist.getName()</h1>
 
 <form action="/$stylist.getId()" class="form-horizontal" method="post">
   <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
@@ -25,24 +23,6 @@ stylist.vtl
 
   <button type="submit" class="btn btn-info">Add Client</button>
 </form>
-
+<br>
+<br>
 <a href="/">Go to Main Page</a>
-<!-- <div class="row">
-
-   <h4> Client List</h4>
-   <div class="col-md-4">
-     <h5><u>Add a New Client</u></h5>
-     <form action="/$stylist.getId()/new-client" method="post">
-       <label for="name">Client name </label>
-       <br>
-       <input id="name-client" name="name-client" type="text" required>
-       <br>
-       <label for="id-stylist">Select a Stylist</label>
-       <select id="id-stylist" name="id-stylist" type="text">
-           <option value="$stylist.getId()">$stylist.getName()</option>
-       </select>
-       <br>
-       <br>
-       <button type="submit" class="btn btn-success new-client">Submit</button>
-     </form>
-   </div> -->

@@ -1,4 +1,6 @@
-# Java/Spark/Velocity File Structure Template
+# Hair Salon
+
+  An app to track stylists and clients
 
 #### February 26, 2016
 
@@ -6,21 +8,20 @@
 
 ## Description
 
-This is a template file structure for use in Epicodus Java/Spark/Velocity projects.
+The Hair Salon app tracks hair stylists and their clients. Users can add and delete stylists and clients.
 
-## How To Use
 
-* Make a directory for your project and initialize a git repository.
-* Pull this file structure template from GitHub: `git pull
+## Setup/Installation Requirements
 
-OR:
+* Clone this repository.
+* Make sure you have Gradle, Java and Postgres installed.
+* In a terminal: Open postgres
+* Open psql in a new tab
+* Run the following command in psql to create the database CREATE DATABASE hair_salon
+* Navigate to your project directory in your terminal and run the following command to        populate your database psql hair_salon < hair_salon.sql
+* In the top level of the cloned directory, run the following command in your terminal: gradle run
+* Open your web browser of choice to localhost:4567
 
-* Fork this repository from GitHub and rename it
+##Technologies Used
 
-## Please Make This Better
-
-Please fork this repository and send a pull request if something in here could be better.
-
-## Technologies Used
-
-Java, Spark, JUnit, FluentLenium, Velocity, Bootstrap
+Java, Spark, JUnit, Velocity, Bootstrap, FluentLenium, Postgres
