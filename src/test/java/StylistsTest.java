@@ -43,5 +43,13 @@ public class StylistsTest {
       assertEquals("Frank", myStylists.getName());
   }
 
+  @Test
+  public void delete_removesStylistsInDatabase_true() {
+    Stylists myStylists = new Stylists("Jim");
+    myStylists.save();
+    myStylists.delete();
+    assertEquals(0, Stylists.all().size());
+  }
+
 
 }
