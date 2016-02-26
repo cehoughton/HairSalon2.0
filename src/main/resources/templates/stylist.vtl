@@ -7,7 +7,8 @@ stylist.vtl
   <div class="col-md-8">
     <ul>
       #foreach($client in $stylist.getClients())
-        <li>$client.getName()</li>
+        <li><a href="/client/$client.getId()">$client.getName()</a></li>
+        
       #end
     </ul>
   </div>
@@ -24,6 +25,8 @@ stylist.vtl
 
   <button type="submit" class="btn btn-info">Add Client</button>
 </form>
+
+<a href="/">Go to Main Page</a>
 <!-- <div class="row">
 
    <h4> Client List</h4>
