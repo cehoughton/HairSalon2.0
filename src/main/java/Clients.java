@@ -86,4 +86,9 @@ public class Clients {
           .executeUpdate();
       }
     }
-}
+
+      public String getStylistsName() {
+    return Stylists.find(mStylistsId).getName();
+  }
+
+  }
