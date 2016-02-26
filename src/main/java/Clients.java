@@ -53,4 +53,37 @@ public class Clients {
       return con.createQuery(sql).executeAndFetch(Clients.class);
     }
   }
+
+  //FIND
+   public static Clients find(int id) {
+     try (Connection con = DB.sql2o.open()) {
+       String sql = "SELECT id AS mId, name AS mName, stylists_id AS mStylistsId FROM clients WHERE id=:id";
+       Clients myClients = con.createQuery(sql)
+         .addParameter("id", id)
+         .executeAndFetchFirst(Clients.class);
+       return myClients;
+     }
+   }
+
+   //UPDATE
+    public void update(String newName) {
+      this.mName = newName;
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "UPDATE clients SET name = :newName WHERE id = :id";
+        con.createQuery(sql)
+          .addParameter("newName", newName)
+          .addParameter("id", this.mId)
+          .executeUpdate();
+      }
+    }
+
+    //DELETE
+    public void delete() {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "DELETE FROM clients WHERE id = :id";
+        con.createQuery(sql)
+          .addParameter("id", this.mId)
+          .executeUpdate();
+      }
+    }
 }
