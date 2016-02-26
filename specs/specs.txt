@@ -1,1 +1,5 @@
 ## For plain English specs
+User will be able to add stylist names to a list
+user will be able to delete stylist names
+user will be able to update stylist name
+user will be able to add a client name to each stylist
