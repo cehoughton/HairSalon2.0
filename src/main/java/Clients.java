@@ -92,3 +92,15 @@ public class Clients {
   }
 
   }
+
+  // // assignStylist METHOD - adds a stylist id to the Client
+  // public void assignStylist(int stylistId) {
+  //   mStylistId = stylistId;
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE clients SET stylist_id = :stylistId WHERE id=:id";
+  //     con.createQuery(sql)
+  //        .addParameter("stylistId", stylistId)
+  //        .addParameter("id", this.mId)
+  //        .executeUpdate();
+  //   }
+  // }

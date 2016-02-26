@@ -1,0 +1,32 @@
+<h3>$stylist.getName()</h3>
+<hr>
+
+<div class="row">
+  <div class="col-md-8">
+    <ul>
+      #foreach($client in $stylist.getClients())
+        <li>$client.getName()</li>
+      #end
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+
+   <h4> Client List</h4>
+   <div class="col-md-4">
+     <h5><u>Add a New Client</u></h5>
+     <form action="/$stylist.getId()/new-client" method="post">
+       <label for="name">Client name </label>
+       <br>
+       <input id="name-client" name="name-client" type="text" required>
+       <br>
+       <label for="id-stylist">Select a Stylist</label>
+       <select id="id-stylist" name="id-stylist" type="text">
+           <option value="$stylist.getId()">$stylist.getName()</option>
+       </select>
+       <br>
+       <br>
+       <button type="submit" class="btn btn-success new-client">Submit</button>
+     </form>
+   </div>
