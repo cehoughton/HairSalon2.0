@@ -44,4 +44,16 @@ public class AppTest extends FluentTest {
       submit(".delete-stylist");
       assertThat(!(pageSource()).contains("Susan"));
   }
+
+  @Test
+   public void stylistUpdatedSuccessfully() {
+     Stylists myStylist = new Stylists("Susan");
+     myStylist.save();
+     goTo("http://localhost:4567/");
+     click("option", withText("Susan"));
+     fill("#newName-stylist").with("George");
+     submit(".update-stylist");
+     assertThat(pageSource()).contains("George");
+   }
+
 }

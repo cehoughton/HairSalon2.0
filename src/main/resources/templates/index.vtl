@@ -32,3 +32,22 @@
         <br>
         <button type="submit" class="btn btn-danger delete-stylist">Submit</button>
       </form>
+
+    <br>
+    <h5><u>Update A Stylist</u></h5>
+      <form action="/update-stylist" method="post">
+        <label for="id-stylist">Select a Stylist</label>
+        <select id="id-stylist" name="id-stylist" type="text">
+          #foreach($stylist in $stylists)
+            <option value="$stylist.getId()">$stylist.getName()</option>
+          #end
+        </select>
+        <br>
+        <label for="newName-stylist">Update Stylist Name</label>
+        <br>
+        <input id="newName-stylist" name="newName-stylist" type="text">
+        <br>
+        <br>
+        <button type="submit" class="btn btn-warning update-stylist">Update Stylist</button>
+      </form>
+    </div>

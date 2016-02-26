@@ -35,6 +35,16 @@ public class App {
             return null;
           });
 
+          post("/update-stylist", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            String newName = request.queryParams("newName-stylist");
+            Stylists stylist = Stylists.find(Integer.parseInt(request.queryParams("id-stylist")));
+            stylist.update(newName);
+            model.put("stylist", stylist);
+            response.redirect("/");
+            return null;
+          });
+
         //RESTful ARCHITECTURE
         //Use POST to create something on the server
         //Use GET to retrieve something from the server
