@@ -3,6 +3,7 @@
   An app to track stylists and clients
 
 #### February 26, 2016
+  For Epicodus.
 
 #### By Chris Houghton
 
