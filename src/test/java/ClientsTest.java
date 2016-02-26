@@ -1,11 +1,13 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class UnitTest {
+public class ClientsTest {
 
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
-  //Tests go here
-
+  @Test
+  public void all_emptyAtFirst() {
+      assertEquals(Clients.all().size(), 0);
+ }
 }

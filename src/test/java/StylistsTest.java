@@ -63,6 +63,3 @@ public class StylistsTest {
      assertTrue(myStylists.getClients().containsAll(Arrays.asList(Clients)));
    }
 }
-
-
-}
